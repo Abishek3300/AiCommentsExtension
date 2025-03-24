@@ -1,0 +1,47 @@
+{
+  "name": "vscode-ai-commenter",
+  "displayName": "AI Code Commenter",
+  "description": "VS Code extension to generate AI-powered comments using Ollama and FAISS",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onCommand:extension.addComments",
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.addComments",
+        "title": "Add AI Comments"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "extension.addComments",
+        "key": "ctrl+alt+p",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "tsc",
+    "build": "tsc",
+    "watch": "tsc -w",
+    "postinstall": "npm run build"
+  },
+  "dependencies": {
+    "axios": "^1.8.4"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.11",
+    "@types/vscode": "^1.98.0",
+    "typescript": "^5.8.2",
+    "vscode": "^1.1.37"
+  }
+}
